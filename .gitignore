@@ -47,4 +47,8 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
+<<<<<<< HEAD
 *.lnk
+=======
+*.lnk
+>>>>>>> 592e5ff (Initial commit with lab1 and libraries submodule)
