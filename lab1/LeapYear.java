@@ -16,7 +16,7 @@ public class LeapYear {
 
     public static boolean isLeapYear(int year) {
         /** Return whether year is leepyear */
-        return year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)
+        return year % 400 == 0 || (year % 4 == 0 && year % 100 != 0);
     }
 
     /** Must be provided an integer as a command line argument ARGS. */
