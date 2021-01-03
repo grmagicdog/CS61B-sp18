@@ -36,6 +36,6 @@ public class Lists1Exercises {
         System.out.println(incrList(L, 3));
         System.out.println(L.get(1));
         System.out.println(dincrList(L, 3));
-        System.out.println(L.get(1));        
+        System.out.println(L.get(1));
     }
 }
