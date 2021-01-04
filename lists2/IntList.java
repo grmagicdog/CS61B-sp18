@@ -34,11 +34,38 @@ public class IntList {
 		return rest.get(i - 1);
 	}
 
+	/** If 2 numbers in a row are the same, adds them together and
+	 *	make one large node. For example:
+	 *	1 → 1 → 2 → 3 becomes 2 → 2 → 3 which becomes 4 → 3
+	 */
+	public void addAdjacent() {
+		if (rest == null) {
+			return;
+		}
+		if (first == rest.first) {
+			first *= rest.first;
+			rest = rest.rest;
+			this.addAdjacent();
+		} else {
+			rest.addAdjacent();
+		}
+	}
+
+	public void addSquare() {
+		if (rest == null) {
+			rest = new IntList(first * first, null);
+		} else {
+			rest.addSquare();
+			rest = new IntList(first * first, rest);
+		}
+	}
+
 	public static void main(String[] args) {
 		IntList L = new IntList(15, null);
 		L = new IntList(10, L);
 		L = new IntList(5, L);
-
+		L.addAdjacent();
+		L.addSquare();
 		System.out.println(L.get(100));
 	}
 } 
