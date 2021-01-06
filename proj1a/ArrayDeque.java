@@ -57,6 +57,7 @@ public class ArrayDeque<T> {
         frontIndex = arrayIndex(-1);
         items[frontIndex] = item;
         size += 1;
+        backIndex = arrayIndex(size - 1);
     }
 
     /** Adds an item of type T to the back of the deque. */
@@ -77,8 +78,8 @@ public class ArrayDeque<T> {
         }
         T result = items[frontIndex];
         items[frontIndex] = null;
+        frontIndex = arrayIndex(1);
         size -= 1;
-        frontIndex = arrayIndex(0);
 
         if (size < items.length * 0.25 && items.length >= 16) {
             resize(items.length / 2);

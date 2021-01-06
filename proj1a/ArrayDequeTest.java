@@ -36,25 +36,25 @@ public class ArrayDequeTest {
     public static void addIsEmptySizeTest() {
         System.out.println("Running add/isEmpty/Size test.");
 
-        ArrayDeque<String> lld1 = new ArrayDeque<String>();
+        ArrayDeque<String> ad1 = new ArrayDeque<String>();
 
-        boolean passed = checkEmpty(true, lld1.isEmpty());
+        boolean passed = checkEmpty(true, ad1.isEmpty());
 
-        lld1.addFirst("front");
+        ad1.addFirst("front");
 
         // The && operator is the same as "and" in Python.
         // It's a binary operator that returns true if both arguments true, and false otherwise.
-        passed = checkSize(1, lld1.size()) && passed;
-        passed = checkEmpty(false, lld1.isEmpty()) && passed;
+        passed = checkSize(1, ad1.size()) && passed;
+        passed = checkEmpty(false, ad1.isEmpty()) && passed;
 
-        lld1.addLast("middle");
-        passed = checkSize(2, lld1.size()) && passed;
+        ad1.addLast("middle");
+        passed = checkSize(2, ad1.size()) && passed;
 
-        lld1.addLast("back");
-        passed = checkSize(3, lld1.size()) && passed;
+        ad1.addLast("back");
+        passed = checkSize(3, ad1.size()) && passed;
 
         System.out.println("Printing out deque: ");
-        lld1.printDeque();
+        ad1.printDeque();
 
         printTestStatus(passed);
 
@@ -65,25 +65,29 @@ public class ArrayDequeTest {
 
         System.out.println("Running add/remove test.");
 
-        ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
+        ArrayDeque<Integer> ad1 = new ArrayDeque<Integer>();
         // should be empty
-        boolean passed = checkEmpty(true, lld1.isEmpty());
+        boolean passed = checkEmpty(true, ad1.isEmpty());
+        
+        ad1.addFirst(0);
+        // should remove 0
+        passed = checkEmpty(true, ad1.removeLast() == 0) && passed;
 
-        lld1.addFirst(10);
+        ad1.addFirst(10);
         // should not be empty
-        passed = checkEmpty(false, lld1.isEmpty()) && passed;
+        passed = checkEmpty(false, ad1.isEmpty()) && passed;
 
-        lld1.addLast(20);
+        ad1.addLast(20);
         // should be 2
-        passed = checkSize(2, lld1.size()) && passed;
+        passed = checkSize(2, ad1.size()) && passed;
 
         // should remove 20
-        passed = checkEmpty(true, lld1.removeLast() == 20) && passed;
+        passed = checkEmpty(true, ad1.removeLast() == 20) && passed;
 
         // should remove 10
-        passed = checkEmpty(true, lld1.removeFirst() == 10) && passed;
+        passed = checkEmpty(true, ad1.removeFirst() == 10) && passed;
         // should be empty
-        passed = checkEmpty(true, lld1.isEmpty()) && passed;
+        passed = checkEmpty(true, ad1.isEmpty()) && passed;
 
         printTestStatus(passed);
     }
@@ -94,28 +98,28 @@ public class ArrayDequeTest {
 
         System.out.println("Running get test.");
 
-        ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
+        ArrayDeque<Integer> ad1 = new ArrayDeque<Integer>();
         // should be empty
-        boolean passed = checkEmpty(true, lld1.isEmpty());
+        boolean passed = checkEmpty(true, ad1.isEmpty());
 
-        lld1.addFirst(10);
-        lld1.addLast(20);
-        lld1.addFirst(0);
+        ad1.addFirst(10);
+        ad1.addLast(20);
+        ad1.addFirst(0);
 
         System.out.println("Printing out deque: ");
-        lld1.printDeque();
+        ad1.printDeque();
 
         // should get 10 at index 1
-        passed = checkEmpty(true, lld1.get(1) == 10) && passed;
+        passed = checkEmpty(true, ad1.get(1) == 10) && passed;
 
         // should get null at index 4
-        passed = checkEmpty(true, lld1.get(4) == null) && passed;
+        passed = checkEmpty(true, ad1.get(4) == null) && passed;
 
         System.out.println("Printing out deque after get: ");
-        lld1.printDeque();
+        ad1.printDeque();
 
         // should be 3
-        passed = checkSize(3, lld1.size()) && passed;
+        passed = checkSize(3, ad1.size()) && passed;
 
         printTestStatus(passed);
     }
