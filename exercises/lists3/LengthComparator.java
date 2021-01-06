@@ -48,6 +48,6 @@ public class LengthComparator implements NullSafeStringComparator {
                 {null, "a", "ca", "", "ca", null},
                 new String[6]
         };
-        String[][] steped = step(arr);
+        String[][] stepped = step(arr);
     }
 }

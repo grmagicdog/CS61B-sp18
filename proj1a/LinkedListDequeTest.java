@@ -35,8 +35,7 @@ public class LinkedListDequeTest {
 	  * && is the "and" operation. */
 	public static void addIsEmptySizeTest() {
 		System.out.println("Running add/isEmpty/Size test.");
-		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
-		/*
+
 		LinkedListDeque<String> lld1 = new LinkedListDeque<String>();
 
 		boolean passed = checkEmpty(true, lld1.isEmpty());
@@ -58,7 +57,7 @@ public class LinkedListDequeTest {
 		lld1.printDeque();
 
 		printTestStatus(passed);
-		*/
+
 	}
 
 	/** Adds an item, then removes an item, and ensures that dll is empty afterwards. */
@@ -66,8 +65,6 @@ public class LinkedListDequeTest {
 
 		System.out.println("Running add/remove test.");
 
-		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
-		/*
 		LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
 		// should be empty 
 		boolean passed = checkEmpty(true, lld1.isEmpty());
@@ -76,17 +73,63 @@ public class LinkedListDequeTest {
 		// should not be empty 
 		passed = checkEmpty(false, lld1.isEmpty()) && passed;
 
-		lld1.removeFirst();
+		lld1.addLast(20);
+		// should be 2
+		passed = checkSize(2, lld1.size()) && passed;
+
+		// should remove 20
+		passed = checkEmpty(true, lld1.removeLast() == 20) && passed;
+
+		// should remove 10
+		passed = checkEmpty(true, lld1.removeFirst() == 10) && passed;
 		// should be empty 
 		passed = checkEmpty(true, lld1.isEmpty()) && passed;
 
 		printTestStatus(passed);
-		*/
+	}
+
+	/** Gets an item at the given index.
+	 *  Ensures to get null if no such item exists, and not to alter the deque */
+	public static void addGetTest() {
+
+		System.out.println("Running get test.");
+
+		LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
+		// should be empty
+		boolean passed = checkEmpty(true, lld1.isEmpty());
+
+		lld1.addFirst(10);
+		lld1.addLast(20);
+		lld1.addFirst(0);
+
+		System.out.println("Printing out deque: ");
+		lld1.printDeque();
+
+		// should get 10 at index 1
+		passed = checkEmpty(true, lld1.get(1) == 10) && passed;
+
+		// should get null at index 4
+		passed = checkEmpty(true, lld1.get(4) == null) && passed;
+
+		// should get 20 at index 2
+		passed = checkEmpty(true, lld1.getRecursive(2) == 20) && passed;
+
+		// should get null at index -1
+		passed = checkEmpty(true, lld1.getRecursive(-1) == null) && passed;
+
+		System.out.println("Printing out deque after get: ");
+		lld1.printDeque();
+
+		// should be 3
+		passed = checkSize(3, lld1.size()) && passed;
+
+		printTestStatus(passed);
 	}
 
 	public static void main(String[] args) {
 		System.out.println("Running tests.\n");
 		addIsEmptySizeTest();
 		addRemoveTest();
+		addGetTest();
 	}
 } 
