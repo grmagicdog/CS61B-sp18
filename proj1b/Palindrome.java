@@ -1,3 +1,5 @@
+import java.util.Locale;
+
 public class Palindrome {
 
     /** Returns a Deque where the characters appear in the same order
@@ -18,7 +20,7 @@ public class Palindrome {
         if (word == null) {
             return false;
         }
-        Deque<Character> d = wordToDeque(word);
+        Deque<Character> d = wordToDeque(word.toLowerCase());
         while (d.size() > 1) {
             if (d.removeFirst() != d.removeLast()) {
                 return false;
@@ -36,7 +38,7 @@ public class Palindrome {
         if (word == null) {
             return false;
         }
-        Deque<Character> d = wordToDeque(word);
+        Deque<Character> d = wordToDeque(word.toLowerCase());
         while (d.size() > 1) {
             if (!cc.equalChars(d.removeFirst(), d.removeLast())) {
                 return false;
