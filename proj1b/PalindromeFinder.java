@@ -6,7 +6,7 @@ public class PalindromeFinder {
         String dataPath = "../library-sp18/data/words.txt";
         int mostN = 0;
         int mostPals = 0;
-        for (int n = 0; n < 52; n++) {
+        for (int n = 0; n < 26; n++) {
             System.out.println("Palindromes off by " + n);
             int numPals = printPalindromes(dataPath, n);
             if (numPals > mostPals) {

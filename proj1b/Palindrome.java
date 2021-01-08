@@ -1,5 +1,3 @@
-import java.util.Locale;
-
 public class Palindrome {
 
     /** Returns a Deque where the characters appear in the same order
