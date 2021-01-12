@@ -4,13 +4,13 @@ import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 import java.util.ArrayList;
 
 public class Percolation {
-    WeightedQuickUnionUF openUF;
-    WeightedQuickUnionUF fullUF;
-    WeightedQuickUnionUF percolateUF;
-    int n;
-    int openSite;
-    int top;
-    int bottom;
+    private final WeightedQuickUnionUF openUF;
+    private final WeightedQuickUnionUF fullUF;
+    private final WeightedQuickUnionUF percolateUF;
+    private final int n;
+    private final int openSite;
+    private final int top;
+    private final int bottom;
 
     /** Creates N-by-N grid, with all sites initially blocked. */
     public Percolation(int N) {
@@ -58,7 +58,8 @@ public class Percolation {
         if (row == 0) {
             fullUF.union(site, top);
             percolateUF.union(site, top);
-        } else if (row == n - 1) {
+        }
+        if (row == n - 1) {
             percolateUF.union(site, bottom);
         }
         for (int adj : adjacentSites(row, col)) {
