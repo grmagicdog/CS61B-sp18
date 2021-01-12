@@ -4,7 +4,7 @@ import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
 
 public class PercolationStats {
-    double[] samples;
+    private final double[] samples;
 
     /** Performs T independent experiments on an N-by-N grid. */
     public PercolationStats(int N, int T, PercolationFactory pf) {
